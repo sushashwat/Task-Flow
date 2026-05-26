@@ -1,4 +1,4 @@
-/* ── Design Tokens ── */
+
 :root {
   --bg:         #0d0d0f;
   --surface:    #16161a;
@@ -19,7 +19,7 @@
   --shadow:     0 4px 24px rgba(0,0,0,0.4);
 }
 
-/* ── Reset ── */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -30,12 +30,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Scrollbar ── */
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--surface); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
 
-/* ── Layout ── */
+
 .app-wrapper {
   min-height: 100vh;
   display: flex;
@@ -48,7 +48,7 @@ body {
     var(--bg);
 }
 
-/* ── Header ── */
+
 .app-header {
   width: 100%;
   max-width: 680px;
@@ -114,7 +114,7 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* ── Main Content ── */
+
 .app-main {
   width: 100%;
   max-width: 680px;
@@ -123,7 +123,7 @@ body {
   gap: 16px;
 }
 
-/* ── Add Task Form ── */
+
 .add-task-form {
   display: flex;
   gap: 10px;
@@ -174,7 +174,7 @@ body {
 .add-task-btn:hover { opacity: 0.88; }
 .add-task-btn:active { transform: scale(0.97); }
 
-/* ── Filter Tabs ── */
+
 .filter-tabs {
   display: flex;
   gap: 6px;
@@ -205,7 +205,7 @@ body {
   color: var(--accent);
 }
 
-/* ── Todo List ── */
+
 .todo-list {
   display: flex;
   flex-direction: column;
@@ -228,7 +228,6 @@ body {
   opacity: 0.4;
 }
 
-/* ── Todo Item ── */
 .todo-item {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -253,7 +252,7 @@ body {
   border-color: var(--border);
 }
 
-/* Custom checkbox */
+
 .todo-checkbox {
   width: 22px;
   height: 22px;
@@ -285,7 +284,7 @@ body {
   transform: rotate(45deg) translateY(-1px);
 }
 
-/* Task text */
+
 .todo-text-wrapper {
   flex: 1;
   min-width: 0;
@@ -304,7 +303,7 @@ body {
   color: var(--text-3);
 }
 
-/* Edit input */
+
 .todo-edit-input {
   width: 100%;
   background: var(--surface-2);
@@ -317,7 +316,7 @@ body {
   outline: none;
 }
 
-/* Action buttons */
+
 .todo-actions {
   display: flex;
   gap: 4px;
@@ -346,7 +345,7 @@ body {
 .icon-btn.danger:hover { background: var(--danger-dim); color: var(--danger); }
 .icon-btn.save:hover { background: var(--accent-dim); color: var(--accent); }
 
-/* Progress bar */
+
 .progress-bar-wrap {
   background: var(--surface);
   border: 1px solid var(--border);
