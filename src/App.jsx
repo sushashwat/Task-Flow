@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import ToDoList from './components/ToDoList';
-import { useEffect } from 'react';
+
 
 // Utility: generate a unique id for each task
 function generateId() {
@@ -18,6 +18,12 @@ function App() {
 
   // State: active filter tab
   const [filter, setFilter] = useState('all'); // 'all' | 'active' | 'completed'
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem('todos');
@@ -86,6 +92,7 @@ function App() {
 
         <form className="add-task-form" onSubmit={handleAdd}>
           <input
+            ref={inputRef}
             className="add-task-input"
             type="text"
             value={inputValue}
