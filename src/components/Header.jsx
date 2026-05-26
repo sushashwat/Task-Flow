@@ -8,7 +8,7 @@ return(
         <h1 className="header-title">
             Task <span>Flow</span>
         </h1>
-        <p className="header-subtitle"></p>
+        <p className="header-subtitle">Manage Your Day to Day Tasks Easily</p>
 
         <div className="header-stats">
             <div className="stat">
