@@ -10,12 +10,7 @@ function generateId() {
 // App — root component; owns all state and passes handlers as props
 function App() {
   // State: array of todo objects { id, text, completed }
-  const [todos, setTodos] = useState([
-    { id: generateId(), text: '', completed: true},
-    { id: generateId(), text: '', completed: true },
-    { id: generateId(), text: '', completed: false },
-    { id: generateId(), text: '', completed: false},
-  ]);
+  const [todos, setTodos] = useState([]);
 
   // State: controlled input value for new task
   const [inputValue, setInputValue] = useState('');
