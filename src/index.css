@@ -1,0 +1,382 @@
+/* ── Design Tokens ── */
+:root {
+  --bg:         #0d0d0f;
+  --surface:    #16161a;
+  --surface-2:  #1e1e24;
+  --border:     #2a2a35;
+  --accent:     #e8ff47;
+  --accent-dim: rgba(232,255,71,0.12);
+  --danger:     #ff5252;
+  --danger-dim: rgba(255,82,82,0.12);
+  --success:    #52c98a;
+  --text-1:     #f0f0f5;
+  --text-2:     #8888a0;
+  --text-3:     #50505f;
+  --radius:     14px;
+  --radius-sm:  8px;
+  --font-head:  'Syne', sans-serif;
+  --font-body:  'DM Sans', sans-serif;
+  --shadow:     0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ── Layout ── */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 60px;
+  background:
+    radial-gradient(ellipse 60% 40% at 70% -10%, rgba(232,255,71,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(82,201,138,0.05) 0%, transparent 60%),
+    var(--bg);
+}
+
+/* ── Header ── */
+.app-header {
+  width: 100%;
+  max-width: 680px;
+  padding: 48px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.header-title {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.header-title span {
+  color: var(--accent);
+}
+
+.header-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  font-weight: 300;
+}
+
+.header-stats {
+  margin-top: 20px;
+  display: flex;
+  gap: 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-number {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Main Content ── */
+.app-main {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Add Task Form ── */
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: border-color 0.2s;
+}
+
+.add-task-form:focus-within {
+  border-color: var(--accent);
+}
+
+.add-task-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-1);
+  padding: 4px 6px;
+}
+
+.add-task-input::placeholder {
+  color: var(--text-3);
+}
+
+.add-task-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #0d0d0f;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 18px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: opacity 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.add-task-btn:hover { opacity: 0.88; }
+.add-task-btn:active { transform: scale(0.97); }
+
+/* ── Filter Tabs ── */
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px;
+}
+
+.filter-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filter-tab:hover { color: var(--text-1); }
+
+.filter-tab.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ── Todo List ── */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-empty {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+.todo-empty-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+/* ── Todo Item ── */
+.todo-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s, transform 0.15s;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.todo-item:hover { border-color: #3a3a4a; }
+
+.todo-item.completed {
+  opacity: 0.55;
+  border-color: var(--border);
+}
+
+/* Custom checkbox */
+.todo-checkbox {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.todo-checkbox:hover { border-color: var(--accent); }
+
+.todo-checkbox.checked {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.todo-checkbox.checked::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: 2px solid #0d0d0f;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+/* Task text */
+.todo-text-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-text {
+  font-size: 15px;
+  color: var(--text-1);
+  line-height: 1.4;
+  word-break: break-word;
+  transition: color 0.15s;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-3);
+}
+
+/* Edit input */
+.todo-edit-input {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-1);
+  outline: none;
+}
+
+/* Action buttons */
+.todo-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.todo-item:hover .todo-actions { opacity: 1; }
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.icon-btn:hover { background: var(--surface-2); color: var(--text-1); }
+.icon-btn.danger:hover { background: var(--danger-dim); color: var(--danger); }
+.icon-btn.save:hover { background: var(--accent-dim); color: var(--accent); }
+
+/* Progress bar */
+.progress-bar-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.progress-pct {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 36px;
+  text-align: right;
+}
