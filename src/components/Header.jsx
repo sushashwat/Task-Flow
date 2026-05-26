@@ -1,5 +1,5 @@
 function Header({total,completed}){
-    const pending = total-completed;
+    const pending = Math.max(0,total-completed);
 
 
 return(

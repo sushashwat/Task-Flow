@@ -68,11 +68,11 @@ function App() {
   // ── Render ──────────────────────────────────────────────────────
   return (
     <div className="app-wrapper">
-      {/* Header receives stats as props */}
+  
       <Header total={todos.length} completed={completedCount} />
 
       <main className="app-main">
-        {/* Add task form */}
+      
         <form className="add-task-form" onSubmit={handleAdd}>
           <input
             className="add-task-input"
@@ -87,7 +87,7 @@ function App() {
           </button>
         </form>
 
-        {/* Progress bar */}
+        
         <div className="progress-bar-wrap">
           <div className="progress-track">
             <div className="progress-fill" style={{ width: `${progress}%` }} />
@@ -95,7 +95,7 @@ function App() {
           <span className="progress-pct">{progress}%</span>
         </div>
 
-        {/* Filter tabs */}
+        
         <div className="filter-tabs" role="tablist">
           {['all', 'active', 'completed'].map((f) => (
             <button
@@ -110,7 +110,6 @@ function App() {
           ))}
         </div>
 
-        {/* ToDoList receives filtered todos + all handlers as props */}
         <ToDoList
           todos={filteredTodos}
           onToggle={handleToggle}
