@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import ToDoList from './components/ToDoList';
+import { useEffect } from 'react';
 
 // Utility: generate a unique id for each task
 function generateId() {
@@ -17,6 +18,16 @@ function App() {
 
   // State: active filter tab
   const [filter, setFilter] = useState('all'); // 'all' | 'active' | 'completed'
+
+  useEffect(() => {
+    const saved = localStorage.getItem('todos');
+    if (saved) setTodos(JSON.parse(saved));
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   // ── Event Handlers ──────────────────────────────────────────────
 
@@ -68,11 +79,11 @@ function App() {
   // ── Render ──────────────────────────────────────────────────────
   return (
     <div className="app-wrapper">
-  
+
       <Header total={todos.length} completed={completedCount} />
 
       <main className="app-main">
-      
+
         <form className="add-task-form" onSubmit={handleAdd}>
           <input
             className="add-task-input"
@@ -87,7 +98,7 @@ function App() {
           </button>
         </form>
 
-        
+
         <div className="progress-bar-wrap">
           <div className="progress-track">
             <div className="progress-fill" style={{ width: `${progress}%` }} />
@@ -95,7 +106,7 @@ function App() {
           <span className="progress-pct">{progress}%</span>
         </div>
 
-        
+
         <div className="filter-tabs" role="tablist">
           {['all', 'active', 'completed'].map((f) => (
             <button

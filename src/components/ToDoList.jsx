@@ -6,7 +6,7 @@ function ToDoList({ todos, onToggle, onDelete, onEdit }) {
     return (
       <div className="todo-empty">
         <div className="todo-empty-icon">📭</div>
-        <p>No tasks here. Add one above!</p>
+        <p>No tasks yet. Start by adding your first task 🚀</p>
       </div>
     );
   }
